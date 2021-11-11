@@ -28,6 +28,7 @@ class ShoppingCreate extends Component {
             cereal: "",
             baking: "",
          };
+         console.log(this.props.token)
     }
 
     handleSubmit = (e) => {

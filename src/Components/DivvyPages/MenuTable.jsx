@@ -26,6 +26,18 @@ import { Table, Button } from 'reactstrap';
 
 const MenuTable = (props) => {
 console.log(props.menus)
+
+    const deleteMenu = (menus) => {
+        fetch(`http://localhost:3000/menu/delete/${menus.id}`, {
+            method: 'DELETE',
+            headers: new Headers({
+                'Content-Type': 'application/json',
+                'Authorization': props.token,
+            })
+        })
+        .then(() => props.fetchMenus())
+    }
+
     const menuMapper = () => {
         return props.menus.map((menu, index) => {
             return(
@@ -38,8 +50,8 @@ console.log(props.menus)
                     <td>{menu.groupName}</td>
                     <td>{menu.familyUsername}</td>
                     <td>
-                        <Button color="warning">Update</Button>
-                        <Button color="danger">Delete</Button>
+                        <Button color="warning" onClick={() => { props.editUpdateMenus(menu); props.updateOn() }}>Update</Button>
+                        <Button color="danger" onClick={() => { deleteMenu(menu); }} >Delete</Button>
                     </td>
                 </tr>
             )

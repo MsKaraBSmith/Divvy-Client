@@ -17,22 +17,14 @@ const DivvyNav = (props) => {
                 <NavItem>
                     <Link to="/menu" className="site-link">Menus</Link>
                 </NavItem>
-                {/* <NavItem>
-                    <Link to="/menucreate" className="site-link">Create A Menu</Link>
-                </NavItem> */}
                 <NavItem>
                     <Link to="/shopping" className="site-link">Shopping Lists</Link>
                 </NavItem>
-                {/* <NavItem>
-                    <Link to="/shoppingcreate" className="site-link">Create A Shopping List</Link>
-                </NavItem> */}
             </Nav>
         </Navbar>
                     <Switch>
                     <Route exact path="/menu"><MenuIndex token={props.token} /></Route>
-                    {/* <Route exact path="/menucreate"><MenuCreate sessionToken={props.sessionToken} /></Route> */}
                     <Route exact path="/shopping"><ShoppingIndex token={props.token} /></Route>
-                    {/* <Route exact path="/shoppingcreate" component={ ShoppingCreate } /> */}
                     </Switch>
         </div>
     );
