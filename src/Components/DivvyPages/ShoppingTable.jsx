@@ -3,16 +3,23 @@ import { Table, Button } from 'reactstrap';
 import styled from 'styled-components';
 
 const ShoppingTableStyle = styled.table`
-    border: 2px solid white;
+    border: 5px solid limegreen;
     border-collapse: collapse;
     align-content: center;
+    background-color: white;
 `;
 
 const ShoppingTD = styled.td `
-    border-left: 1px solid white;
+    border-left: 1px solid red;
     /* padding: 8px; */
+`;
 
-`
+const ShoppingTH= styled.th `
+    border-left: 1px solid red;
+    border-bottom: 1px solid red;
+    border-right: 1px solid red;
+`;
+
 
 const ShoppingTable = (props) => {
 console.log(props.shopping)
@@ -55,10 +62,10 @@ console.log(props.shopping)
                     <ShoppingTD>{shopping.cereal}</ShoppingTD>
                     <ShoppingTD>{shopping.baking}</ShoppingTD>
                     {localStorage.getItem("user")==="admin" || localStorage.getItem("user")==="creator" ? (<>
-                        <td>
+                        <ShoppingTD>
                         <Button color="warning" onClick={() => { props.editUpdateShopping(shopping); props.shoppingUpdateOn() }}>Update</Button>
                         <Button color="danger" onClick={() => { deleteShopping(shopping); window.location.reload(); }} >Delete</Button>
-                        </td>
+                        </ShoppingTD>
                     </>) : null}
                     
                 </tr>
@@ -73,27 +80,28 @@ console.log(props.shopping)
         <ShoppingTableStyle>
         <thead>
             <tr>
-                <th>#</th>
-                <th>Date</th>
+                <ShoppingTH>#</ShoppingTH>
+                <ShoppingTH>Date</ShoppingTH>
                 {/* <th>Group Name</th>
                 <th>Family Username</th> */}
-                <th>Fruits</th>
-                <th>Vegetables</th>
-                <th>Dairy and Eggs</th>
-                <th>Canned Goods</th>
-                <th>Frozen Foods</th>
-                <th>Meat and Protein</th>
-                <th>Deli</th>
-                <th>Condiments</th>
-                <th>Spices and Herbs</th>
-                <th>Sauces</th>
-                <th>Oils</th>
-                <th>Snacks</th>
-                <th>Bread and Bakery</th>
-                <th>Beverages</th>
-                <th>Pasta and Rice</th>
-                <th>Cereal</th>
-                <th>Baking</th>
+                <ShoppingTH>Fruits</ShoppingTH>
+                <ShoppingTH>Vegetables</ShoppingTH>
+                <ShoppingTH>Dairy and Eggs</ShoppingTH>
+                <ShoppingTH>Canned Goods</ShoppingTH>
+                <ShoppingTH>Frozen Foods</ShoppingTH>
+                <ShoppingTH>Meat and Protein</ShoppingTH>
+                <ShoppingTH>Seafood</ShoppingTH>
+                <ShoppingTH>Deli</ShoppingTH>
+                <ShoppingTH>Condiments</ShoppingTH>
+                <ShoppingTH>Spices and Herbs</ShoppingTH>
+                <ShoppingTH>Sauces</ShoppingTH>
+                <ShoppingTH>Oils</ShoppingTH>
+                <ShoppingTH>Snacks</ShoppingTH>
+                <ShoppingTH>Bread and Bakery</ShoppingTH>
+                <ShoppingTH>Beverages</ShoppingTH>
+                <ShoppingTH>Pasta and Rice</ShoppingTH>
+                <ShoppingTH>Cereal</ShoppingTH>
+                <ShoppingTH>Baking</ShoppingTH>
             </tr>
         </thead>
         <tbody>
