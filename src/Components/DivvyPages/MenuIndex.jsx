@@ -5,6 +5,7 @@ import MenuTable from "./MenuTable";
 import MenuEdit from "./MenuEdit";
 import styled from "styled-components";
 import background3 from '../Assets/pexels-anni-roenkae-2457290.jpg';
+import APIURL from "../../helpers/environments";
 
 const MenuBackground = styled.div `
   background-image: url(${background3});
@@ -28,7 +29,7 @@ class MenuIndex extends Component {
   }
 
   fetchMenus= () => {
-    fetch(`http://localhost:3000/menu/getmenu`, {
+    fetch(`${APIURL}/menu/getmenu`, {
       method: "GET",
       headers: new Headers({
         "Content-Type": "application/json",

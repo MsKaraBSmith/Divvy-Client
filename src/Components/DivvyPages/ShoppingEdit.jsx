@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, } from "reactstrap";
+import APIURL from "../../helpers/environments";
 
 class ShoppingEdit extends Component {
   constructor(props) {
@@ -69,7 +70,7 @@ var requestOptions = {
   redirect: 'follow'
 };
 
-fetch(`http://localhost:3000/shopping/updateshopping/${this.props.shoppingToUpdate.id}`, requestOptions)
+fetch(`${APIURL}/shopping/updateshopping/${this.props.shoppingToUpdate.id}`, requestOptions)
   .then(response => response.text())
   .then(result => console.log(result))
   .catch(error => console.log('error', error)); 

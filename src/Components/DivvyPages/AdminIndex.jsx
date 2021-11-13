@@ -3,6 +3,7 @@ import AdminSignup from './AdminSignup';
 import AdminTable from './AdminTable';
 import { Container, Row, Col } from 'reactstrap';
 import AdminEdit from './AdminEdit';
+import APIURL from '../../helpers/environments';
 
 
 class AdminIndex extends Component {
@@ -20,7 +21,7 @@ class AdminIndex extends Component {
     }
 
     fetchUsers= () => {
-        fetch(`http://localhost:3000/user/`, {
+        fetch(`${APIURL}/user/`, {
             method: "GET",
             headers: new Headers({
                 "Content-Type": "application/json",

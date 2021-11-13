@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import background2 from '../Assets/pexels-engin-akyurt-1435904.jpg';
 
 
+
 const HomeBackground = styled.div `
     background-image: url(${background2});
     background-size: cover;

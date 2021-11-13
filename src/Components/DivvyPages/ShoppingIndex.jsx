@@ -5,6 +5,7 @@ import ShoppingTable from "./ShoppingTable";
 import ShoppingEdit from "./ShoppingEdit";
 import styled from "styled-components";
 import background3 from '../Assets/pexels-anni-roenkae-2457290.jpg'
+import APIURL from "../../helpers/environments";
 
 const ShoppingBackground = styled.div `
   background-image: url(${background3});
@@ -33,7 +34,7 @@ class ShoppingIndex extends Component {
   }
 
   fetchShopping() {
-    fetch(`http://localhost:3000/shopping/getshopping`, {
+    fetch(`${APIURL}/shopping/getshopping`, {
         method: "GET",
         headers: new Headers({
           "Content-Type": "application/json",

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import APIURL from '../../helpers/environments';
 
 
 class MenuCreate extends Component {
@@ -18,7 +19,7 @@ class MenuCreate extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        fetch(`http://localhost:3000/menu/create`, {
+        fetch(`${APIURL}/menu/create`, {
             method: "POST",
             body: JSON.stringify({
               menu: {

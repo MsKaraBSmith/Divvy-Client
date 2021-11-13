@@ -23,12 +23,13 @@
 
 import React from 'react';
 import { Table, Button } from 'reactstrap';
+import APIURL from '../../helpers/environments';
 
 const MenuTable = (props) => {
 console.log(props.menus)
 
     const deleteMenu = (menus) => {
-        fetch(`http://localhost:3000/menu/delete/${menus.id}`, {
+        fetch(`${APIURL}/menu/delete/${menus.id}`, {
             method: 'DELETE',
             headers: new Headers({
                 'Content-Type': 'application/json',
