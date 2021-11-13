@@ -3,6 +3,13 @@ import {Container, Row, Col} from 'reactstrap';
 import MenuCreate from './MenuCreate';
 import MenuTable from "./MenuTable";
 import MenuEdit from "./MenuEdit";
+import styled from "styled-components";
+import background3 from '../Assets/pexels-anni-roenkae-2457290.jpg';
+
+const MenuBackground = styled.div `
+  background-image: url(${background3});
+  background-size: cover;
+`;
 
 
 class MenuIndex extends Component {
@@ -55,11 +62,25 @@ class MenuIndex extends Component {
 
   render() {
     return (
+      <MenuBackground>
         <Container>
         <Row>
+            
+            {localStorage.getItem("user")==="admin" || localStorage.getItem("user")==="creator" ? 
+            (<>
             <Col md="3">
             <MenuCreate fetchMenus={this.fetchMenus.bind(this)} token={this.props.token} />
             </Col>
+            </>): null
+            }
+            {/* {localStorage.getItem("user")==="creator" ? 
+            (<>
+            <Col md="3">
+            <MenuCreate fetchMenus={this.fetchMenus.bind(this)} token={this.props.token} />
+            </Col>
+            </>): null
+            } */}
+            
             <Col md="9">
             <MenuTable menus={this.state.menus} editUpdateMenus={this.editUpdateMenus.bind(this)} updateOn={this.updateOn.bind(this)} fetchMenus={this.fetchMenus.bind(this)} token={this.props.token} />
             </Col>
@@ -68,6 +89,7 @@ class MenuIndex extends Component {
             : <></>}
         </Row>
     </Container>
+    </MenuBackground>
     );
   }
 }

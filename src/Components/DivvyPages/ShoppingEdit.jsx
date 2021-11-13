@@ -214,15 +214,6 @@ fetch(`http://localhost:3000/shopping/updateshopping/${this.props.shoppingToUpda
                 />
               </FormGroup>
               <FormGroup>
-                <Label htmlFor="groupName">Edit Group Name</Label>
-                <Input
-                  name="groupName"
-                  value={this.state.editGroupName}
-                  onChange={(e) => this.setState({ editGroupName: e.target.value })
-                  }
-                />
-              </FormGroup>
-              <FormGroup>
                 <Label htmlFor="deli">Edit Deli Items</Label>
                 <Input
                   name="deli"

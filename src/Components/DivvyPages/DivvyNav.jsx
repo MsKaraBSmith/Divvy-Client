@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import MenuIndex from './MenuIndex';
 import ShoppingIndex from './ShoppingIndex';
+import AdminIndex from './AdminIndex';
 
 const DivvyNav = (props) => {
     console.log(props.token, "This is coming from DivvyNav");
@@ -20,11 +21,19 @@ const DivvyNav = (props) => {
                 <NavItem>
                     <Link to="/shopping" className="site-link">Shopping Lists</Link>
                 </NavItem>
+                {localStorage.getItem("user")==="admin"?(<><NavItem>
+                    <Link to="/admin" className="site-link">Admin</Link>
+                </NavItem></>): null}
             </Nav>
         </Navbar>
                     <Switch>
                     <Route exact path="/menu"><MenuIndex token={props.token} /></Route>
                     <Route exact path="/shopping"><ShoppingIndex token={props.token} /></Route>
+                    </Switch>
+                    <Switch>
+                        <Route exact path ="/admin">
+                            <AdminIndex token={props.token} />
+                        </Route>
                     </Switch>
         </div>
     );

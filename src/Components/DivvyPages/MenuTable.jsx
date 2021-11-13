@@ -49,10 +49,13 @@ console.log(props.menus)
                     <td>{menu.recipeLink}</td>
                     <td>{menu.groupName}</td>
                     <td>{menu.familyUsername}</td>
-                    <td>
+                    {localStorage.getItem("user")==="admin" || localStorage.getItem("user")==="creator" ? (<>
+                        <td>
                         <Button color="warning" onClick={() => { props.editUpdateMenus(menu); props.updateOn() }}>Update</Button>
                         <Button color="danger" onClick={() => { deleteMenu(menu); }} >Delete</Button>
-                    </td>
+                        </td>
+                    </>): null}
+                   
                 </tr>
             )
         })

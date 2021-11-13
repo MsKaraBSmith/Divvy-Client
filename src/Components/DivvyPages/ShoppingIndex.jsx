@@ -3,6 +3,19 @@ import {Container, Row, Col} from 'reactstrap';
 import ShoppingCreate from "./ShoppingCreate";
 import ShoppingTable from "./ShoppingTable";
 import ShoppingEdit from "./ShoppingEdit";
+import styled from "styled-components";
+import background3 from '../Assets/pexels-anni-roenkae-2457290.jpg'
+
+const ShoppingBackground = styled.div `
+  background-image: url(${background3});
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  background-repeat: repeat;
+
+`;
+
+
 
 class ShoppingIndex extends Component {
   constructor(props) {
@@ -56,19 +69,24 @@ shoppingUpdateOff = () => {
 
   render() {
     return (
+      <ShoppingBackground>
         <Container>
-        <Row>
-            <Col md="3">
-            <ShoppingCreate fetchShopping={this.fetchShopping.bind(this)} token={this.props.token} />
-            </Col>
-            <Col md="9">
+        {/* <Row> */}
+          {localStorage.getItem("user")==="admin" || localStorage.getItem("user")==="creator" ? 
+          (<>
+          <Col md="6">
+          <ShoppingCreate fetchShopping={this.fetchShopping.bind(this)} token={this.props.token} />
+          </Col>
+          </>) : null} 
+            {/* <Col md="4"> */}
             <ShoppingTable shopping={this.state.shopping} editUpdateShopping={this.editUpdateShopping.bind(this)} shoppingUpdateOn={this.shoppingUpdateOn.bind(this)}fetchShopping={this.fetchShopping.bind(this)} token={this.props.token} />
-            </Col>
+            {/* </Col> */}
             {this.state.shoppingUpdateActive ?
             <ShoppingEdit shoppingToUpdate={this.state.shoppingToUpdate} shoppingUpdateOff={this.shoppingUpdateOff.bind(this)} fetchShopping={this.fetchShopping.bind(this)} token={this.props.token}/>
             : <></>}
-        </Row>
+        {/* </Row> */}
     </Container>
+    </ShoppingBackground>
     );
   }
 }

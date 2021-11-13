@@ -78,7 +78,7 @@ class Signup extends Component {
                     familyUsername: this.state.familyUsername,
                     username: this.state.username,
                     password: this.state.password,
-                    role: this.state.role,
+                    role: 'admin',
                 },
             }),
             headers: new Headers({
@@ -88,6 +88,7 @@ class Signup extends Component {
         .then((response) => response.json())
         .then((data) => {
             this.props.updateToken(data.sessionToken);
+            this.props.isAdmin(data.user.role)
             console.log(data.sessionToken);
             localStorage.setItem("username", this.state.username);
             console.log(data);
@@ -117,10 +118,10 @@ class Signup extends Component {
                     <Label htmlFor="password">Password</Label>
                     <Input onChange={(e) => this.setState({ password: e.target.value})} name="password" value={this.state.password} type="password"/>
                 </FormGroup>
-                <FormGroup>
+                {/* <FormGroup>
                     <Label htmlFor="role">Role</Label>
                     <Input onChange={(e) => this.setState({ role: e.target.value})} name="role" value={this.state.role}/>
-                </FormGroup>
+                </FormGroup> */}
                 <Button type="submit">Signup</Button>
             </Form>
         </div> 

@@ -1,5 +1,18 @@
 import React from 'react';
 import { Table, Button } from 'reactstrap';
+import styled from 'styled-components';
+
+const ShoppingTableStyle = styled.table`
+    border: 2px solid white;
+    border-collapse: collapse;
+    align-content: center;
+`;
+
+const ShoppingTD = styled.td `
+    border-left: 1px solid white;
+    /* padding: 8px; */
+
+`
 
 const ShoppingTable = (props) => {
 console.log(props.shopping)
@@ -20,31 +33,34 @@ console.log(props.shopping)
             return(
                 <tr key={index}>
                     <th scope="row">{shopping.id}</th>
-                    <td>{shopping.date}</td>
-                    <td>{shopping.groupName}</td>
-                    <td>{shopping.familyUsername}</td>
-                    <td>{shopping.fruits}</td>
-                    <td>{shopping.vegetables}</td>
-                    <td>{shopping.dairyAndEggs}</td>
-                    <td>{shopping.cannedGoods}</td>
-                    <td>{shopping.frozenFoods}</td>
-                    <td>{shopping.meat}</td>
-                    <td>{shopping.seafood}</td>
-                    <td>{shopping.deli}</td>
-                    <td>{shopping.condiments}</td>
-                    <td>{shopping.spicesAndHerbs}</td>
-                    <td>{shopping.sauces}</td>
-                    <td>{shopping.oils}</td>
-                    <td>{shopping.snacks}</td>
-                    <td>{shopping.breadAndBakery}</td>
-                    <td>{shopping.beverages}</td>
-                    <td>{shopping.pastaAndRice}</td>
-                    <td>{shopping.cereal}</td>
-                    <td>{shopping.baking}</td>
-                    <td>
+                    <ShoppingTD>{shopping.date}</ShoppingTD>
+                    {/* <td>{shopping.groupName}</td>
+                    <td>{shopping.familyUsername}</td> */}
+                    <ShoppingTD>{shopping.fruits}</ShoppingTD>
+                    <ShoppingTD>{shopping.vegetables}</ShoppingTD>
+                    <ShoppingTD>{shopping.dairyAndEggs}</ShoppingTD>
+                    <ShoppingTD>{shopping.cannedGoods}</ShoppingTD>
+                    <ShoppingTD>{shopping.frozenFoods}</ShoppingTD>
+                    <ShoppingTD>{shopping.meat}</ShoppingTD>
+                    <ShoppingTD>{shopping.seafood}</ShoppingTD>
+                    <ShoppingTD>{shopping.deli}</ShoppingTD>
+                    <ShoppingTD>{shopping.condiments}</ShoppingTD>
+                    <ShoppingTD>{shopping.spicesAndHerbs}</ShoppingTD>
+                    <ShoppingTD>{shopping.sauces}</ShoppingTD>
+                    <ShoppingTD>{shopping.oils}</ShoppingTD>
+                    <ShoppingTD>{shopping.snacks}</ShoppingTD>
+                    <ShoppingTD>{shopping.breadAndBakery}</ShoppingTD>
+                    <ShoppingTD>{shopping.beverages}</ShoppingTD>
+                    <ShoppingTD>{shopping.pastaAndRice}</ShoppingTD>
+                    <ShoppingTD>{shopping.cereal}</ShoppingTD>
+                    <ShoppingTD>{shopping.baking}</ShoppingTD>
+                    {localStorage.getItem("user")==="admin" || localStorage.getItem("user")==="creator" ? (<>
+                        <td>
                         <Button color="warning" onClick={() => { props.editUpdateShopping(shopping); props.shoppingUpdateOn() }}>Update</Button>
                         <Button color="danger" onClick={() => { deleteShopping(shopping); window.location.reload(); }} >Delete</Button>
-                    </td>
+                        </td>
+                    </>) : null}
+                    
                 </tr>
             )
         })
@@ -54,13 +70,13 @@ console.log(props.shopping)
         <>
         <h3>Shopping List</h3>
         <hr />
-        <Table striped>
+        <ShoppingTableStyle>
         <thead>
             <tr>
                 <th>#</th>
                 <th>Date</th>
-                <th>Group Name</th>
-                <th>Family Username</th>
+                {/* <th>Group Name</th>
+                <th>Family Username</th> */}
                 <th>Fruits</th>
                 <th>Vegetables</th>
                 <th>Dairy and Eggs</th>
@@ -83,7 +99,7 @@ console.log(props.shopping)
         <tbody>
             {shoppingMapper()}
         </tbody>
-        </Table>
+        </ShoppingTableStyle>
         </>
      );
 }

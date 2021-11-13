@@ -17,8 +17,9 @@ const Login = (props) => {
             (response) => response.json()
         ).then((data) => {
             props.updateToken(data.sessionToken);
-            // props.updateID(data.ID);
+            props.isAdmin(data.user.role);
             console.log(data);
+            console.log(data.user.role)
         }).catch(err => {
             alert("failed to login");
             console.log(err)
