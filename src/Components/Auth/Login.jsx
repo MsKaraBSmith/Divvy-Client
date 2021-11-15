@@ -45,7 +45,8 @@ class Login extends Component {
     }
 
 
-    return ( 
+    render() {
+        return (
         <LoginDiv>
             <h1>Login</h1>
             <Form onSubmit={this.handleSubmit}>
@@ -61,7 +62,7 @@ class Login extends Component {
             </Form>
         </LoginDiv>
      );
-
+    }
 }
  
 export default Login;
