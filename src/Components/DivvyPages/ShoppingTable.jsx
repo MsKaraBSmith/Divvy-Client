@@ -51,7 +51,7 @@ console.log(props.shopping)
             return(
                 <tr key={index}>
                     {/* <th scope="row">{shopping.id}</th> */}
-                    <ShoppingTD>{moment(shopping.date).format("L")}</ShoppingTD>
+                    <ShoppingTD>{moment(shopping.date).add(1, 'days').calendar()}</ShoppingTD>
                     {/* <td>{shopping.groupName}</td>
                     <td>{shopping.familyUsername}</td> */}
                     <ShoppingTD>{shopping.fruits}</ShoppingTD>

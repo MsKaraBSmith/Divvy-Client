@@ -90,10 +90,15 @@ class AdminEdit extends Component {
               </FormGroup> */}
               <FormGroup>
                 <Label htmlFor="role">Edit Role</Label>
-                <Input type="select" name="role" onChange={(e) => this.setState({ role: e.target.value})} name="role" value={this.state.role}>
-                        <option value="admin">Admin</option>
-                        <option value="creator">Creator</option>
-                        <option value="user">User</option>
+                <Input type="select"
+                  name="role"
+                  value={this.state.editRole}
+                  onChange={(e) =>
+                    this.setState({ editRole: e.target.value })
+                  }>
+                    <option value="admin">Admin</option>
+                    <option value="creator">Creator</option>
+                    <option value="user">User</option>
                     </Input>
               </FormGroup>
               <Button type="submit">Update the Group Member</Button>

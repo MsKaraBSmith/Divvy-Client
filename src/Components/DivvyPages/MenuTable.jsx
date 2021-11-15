@@ -51,7 +51,7 @@ console.log(props.menus)
             return(
                 <tr key={index}>
                     {/* <th scope="row">{menu.id}</th> */}
-                    <MenuTD>{moment(menu.date).format("L")}</MenuTD>
+                    <MenuTD>{moment(menu.date).add(1, 'days').calendar()}</MenuTD>
                     <MenuTD>{menu.recipeTitle}</MenuTD>
                     <MenuTD>{menu.ingredientList}</MenuTD>
                     <MenuTD><a href={menu.recipeLink} target="_blank">{menu.recipeLink}</a></MenuTD>

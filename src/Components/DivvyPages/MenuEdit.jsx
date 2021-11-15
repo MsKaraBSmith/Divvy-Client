@@ -53,7 +53,7 @@ class MenuEdit extends Component {
             <Form onSubmit={this.menuPostUpdate}>
               <FormGroup>
                 <Label htmlFor="date">Edit Date</Label>
-                <Input
+                <Input type="date"
                   name="date"
                   value={this.state.editDate}
                   onChange={(e) => this.setState({ editDate: e.target.value })}
