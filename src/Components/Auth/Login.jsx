@@ -1,6 +1,16 @@
 import React, { useState } from 'react';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
-import { useHistory } from 'react-router';
+import styled from 'styled-components';
+
+const LoginDiv = styled.div `
+    color: white;
+    font-family: 'Josefin Sans', sans-serif;
+    padding-top: 15%;
+`;
+
+const LoginButton = styled.button `
+    background-color: #71B414;
+`;
 
 const Login = (props) => {
     const [username, setUsername] = useState('');
@@ -28,7 +38,7 @@ const Login = (props) => {
     }
 
     return ( 
-        <div>
+        <LoginDiv>
             <h1>Login</h1>
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
@@ -39,9 +49,9 @@ const Login = (props) => {
                     <Label htmlFor="password">Password</Label>
                     <Input onChange={(e) => setPassword(e.target.value)} name="password" value={password}/>
                 </FormGroup>
-                <Button type="submit">Login</Button>
+                <LoginButton type="submit">Login</LoginButton>
             </Form>
-        </div>
+        </LoginDiv>
      );
 }
  

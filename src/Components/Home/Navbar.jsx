@@ -4,7 +4,17 @@ import styled from 'styled-components';
 
 const NavDiv = styled.div `
     z-index: 100;
-`
+`;
+
+const LogoutButton = styled.button `
+    background-color: #71B414;
+    color: white;
+    font-family: 'Josefin Sans', sans-serif;
+    border: none;
+    text-align: center;
+    
+`;
+
 
 const Sitebar = (props) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -22,7 +32,7 @@ const Sitebar = (props) => {
             <Collapse isOpen={isOpen} navbar>
                 <Nav className="ml-auto" navbar>
                     <NavItem>
-                    <Button onClick={props.clickLogout}>Logout</Button>
+                    <LogoutButton onClick={props.clickLogout}>Logout</LogoutButton>
                     </NavItem>
                 </Nav>
             </Collapse>

@@ -1,5 +1,24 @@
+import moment from 'moment';
 import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import styled from 'styled-components';
+
+const MenuCreateStyle = styled.div `
+  font-family: 'Josefin Sans', sans-serif;
+`;
+
+const MenuCreateHeader = styled.h3 `
+  color: white;
+  font-size: 40px;
+  margin-top: 35%;
+`;
+
+const MenuCreateButton = styled.button `
+  background-color: #71B414;
+  border: none;
+  color: white;
+  margin-top: 3%;
+`;
 
 
 class MenuCreate extends Component {
@@ -15,6 +34,8 @@ class MenuCreate extends Component {
          };
          console.log(this.props.token)
     }
+
+    
 
     handleSubmit = (e) => {
         e.preventDefault();
@@ -48,16 +69,17 @@ class MenuCreate extends Component {
               })
              this.props.fetchMenus();
             });
-    }
+    };
 
     render() {
         return (
             <>
-      <h3>Create a Menu</h3>
+            <MenuCreateStyle>
+      <MenuCreateHeader>Create a Menu</MenuCreateHeader>
       <Form onSubmit={this.handleSubmit}>
         <FormGroup>
           <Label htmlFor="date" />
-          <Input type="date" name="date" placeholder="Date" onChange={(e) => {this.setState({ date:(e.target.value)}) }}/>
+          <Input type="date" name="date" placeholder="Date" onChange={(e) => {this.setState({ date:(e.target.value)}) }} />
         </FormGroup>
         <FormGroup>
           <Label htmlFor="recipeTitle" />
@@ -79,8 +101,9 @@ class MenuCreate extends Component {
           <Label htmlFor="familyUsername" />
           <Input name="familyUsername" placeholder="Family Username" onChange={(e) => {this.setState({ familyUsername:(e.target.value)}) }} />
         </FormGroup>
-        <Button type="submit">Click to Submit</Button>
+        <MenuCreateButton type="submit" onClick={() => {window.location.reload();}}>Click to Submit</MenuCreateButton>
       </Form>
+      </MenuCreateStyle>
     </>
          );
     }

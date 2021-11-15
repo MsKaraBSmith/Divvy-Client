@@ -74,9 +74,9 @@ shoppingUpdateOff = () => {
         {/* <Row> */}
           {localStorage.getItem("user")==="admin" || localStorage.getItem("user")==="creator" ? 
           (<>
-          <Col md="6">
+          {/* <Col md="6"> */}
           <ShoppingCreate fetchShopping={this.fetchShopping.bind(this)} token={this.props.token} />
-          </Col>
+          {/* </Col> */}
           </>) : null} 
             {/* <Col md="4"> */}
             <ShoppingTable shopping={this.state.shopping} editUpdateShopping={this.editUpdateShopping.bind(this)} shoppingUpdateOn={this.shoppingUpdateOn.bind(this)}fetchShopping={this.fetchShopping.bind(this)} token={this.props.token} />

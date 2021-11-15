@@ -1,12 +1,15 @@
 import React from 'react';
 import { Table, Button } from 'reactstrap';
 import styled from 'styled-components';
+import moment from 'moment';
 
 const ShoppingTableStyle = styled.table`
     border: 5px solid limegreen;
     border-collapse: collapse;
     align-content: center;
     background-color: white;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 17px;
 `;
 
 const ShoppingTD = styled.td `
@@ -16,8 +19,15 @@ const ShoppingTD = styled.td `
 
 const ShoppingTH= styled.th `
     border-left: 1px solid red;
-    border-bottom: 1px solid red;
+    border-bottom: 3px solid red;
     border-right: 1px solid red;
+`;
+
+const ShoppingTableName = styled.p `
+  color: white;
+  font-size: 40px;
+  padding-top: 5%;
+  font-family: 'Josefin Sans', sans-serif;
 `;
 
 
@@ -39,8 +49,8 @@ console.log(props.shopping)
         return props.shopping.map((shopping, index) => {
             return(
                 <tr key={index}>
-                    <th scope="row">{shopping.id}</th>
-                    <ShoppingTD>{shopping.date}</ShoppingTD>
+                    {/* <th scope="row">{shopping.id}</th> */}
+                    <ShoppingTD>{moment(shopping.date).format("L")}</ShoppingTD>
                     {/* <td>{shopping.groupName}</td>
                     <td>{shopping.familyUsername}</td> */}
                     <ShoppingTD>{shopping.fruits}</ShoppingTD>
@@ -75,12 +85,11 @@ console.log(props.shopping)
 
     return ( 
         <>
-        <h3>Shopping List</h3>
-        <hr />
+        <ShoppingTableName>Shopping List</ShoppingTableName>
         <ShoppingTableStyle>
         <thead>
             <tr>
-                <ShoppingTH>#</ShoppingTH>
+                {/* <ShoppingTH>#</ShoppingTH> */}
                 <ShoppingTH>Date</ShoppingTH>
                 {/* <th>Group Name</th>
                 <th>Family Username</th> */}
