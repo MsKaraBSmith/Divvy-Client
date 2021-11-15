@@ -1,5 +1,16 @@
 import React, { Component } from 'react';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import styled from 'styled-components';
+
+const LoginDiv = styled.div `
+    color: white;
+    font-family: 'Josefin Sans', sans-serif;
+    padding-top: 15%;
+`;
+
+const LoginButton = styled.button `
+    background-color: #71B414;
+`;
 
 class Login extends Component {
     constructor(props) {
@@ -33,9 +44,9 @@ class Login extends Component {
         })
     }
 
-    render() { 
-        return ( 
-            <div>
+
+    return ( 
+        <LoginDiv>
             <h1>Login</h1>
             <Form onSubmit={this.handleSubmit}>
                 <FormGroup>
@@ -46,11 +57,11 @@ class Login extends Component {
                     <Label htmlFor="password">Password</Label>
                     <Input onChange={(e) => this.setState({ password: e.target.value})} name="password" value={this.state.password} type="password"/>
                 </FormGroup>
-                <Button type="submit">Login</Button>
+                <LoginButton type="submit">Login</LoginButton>
             </Form>
-        </div>
-         );
-    }
+        </LoginDiv>
+     );
+
 }
  
 export default Login;
