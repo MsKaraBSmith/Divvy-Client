@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import styled from 'styled-components';
+import APIURL from '../../helpers/environments';
 
 const LoginDiv = styled.div `
     color: white;
@@ -11,6 +12,7 @@ const LoginDiv = styled.div `
 const LoginButton = styled.button `
     background-color: #71B414;
 `;
+
 
 class Login extends Component {
     constructor(props) {
@@ -23,7 +25,7 @@ class Login extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        fetch('http://localhost:3000/user/login', {
+        fetch(`${APIURL}/user/login`, {
             method: 'POST',
             body: JSON.stringify({user:{
                 username: this.state.username, 

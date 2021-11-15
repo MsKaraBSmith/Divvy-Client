@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, } from "reactstrap";
+import APIURL from "../../helpers/environments";
 
 class AdminEdit extends Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class AdminEdit extends Component {
 
   userUpdate = () => {
     fetch(
-      `http://localhost:3000/user/update/${this.props.userToUpdate.id}`,
+      `${APIURL}/user/update/${this.props.userToUpdate.id}`,
       {
         method: "PUT",
         body: JSON.stringify({
@@ -89,13 +90,11 @@ class AdminEdit extends Component {
               </FormGroup> */}
               <FormGroup>
                 <Label htmlFor="role">Edit Role</Label>
-                <Input
-                  name="role"
-                  value={this.state.editRole}
-                  onChange={(e) =>
-                    this.setState({ editRole: e.target.value })
-                  }
-                />
+                <Input type="select" name="role" onChange={(e) => this.setState({ role: e.target.value})} name="role" value={this.state.role}>
+                        <option value="admin">Admin</option>
+                        <option value="creator">Creator</option>
+                        <option value="user">User</option>
+                    </Input>
               </FormGroup>
               <Button type="submit">Update the Group Member</Button>
             </Form>

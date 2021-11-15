@@ -3,6 +3,7 @@ import AdminSignup from './AdminSignup';
 import AdminTable from './AdminTable';
 import { Container, Row, Col } from 'reactstrap';
 import AdminEdit from './AdminEdit';
+<<<<<<< HEAD
 import styled from "styled-components";
 import background4 from '../Assets/pexels-lukas-616404.jpg';
 
@@ -10,6 +11,9 @@ const AdminBackground = styled.div `
   background-image: url(${background4});
   background-size: cover;
 `;
+=======
+import APIURL from '../../helpers/environments';
+>>>>>>> 33a8f7d678d7a4849d20285498c6dde16c962d9c
 
 
 class AdminIndex extends Component {
@@ -27,7 +31,7 @@ class AdminIndex extends Component {
     }
 
     fetchUsers= () => {
-        fetch(`http://localhost:3000/user/`, {
+        fetch(`${APIURL}/user/`, {
             method: "GET",
             headers: new Headers({
                 "Content-Type": "application/json",

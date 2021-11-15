@@ -2,6 +2,7 @@ import React from 'react';
 import { Table, Button } from 'reactstrap';
 import styled from 'styled-components';
 import moment from 'moment';
+import APIURL from '../../helpers/environments';
 
 const ShoppingTableStyle = styled.table`
     border: 5px solid limegreen;
@@ -35,7 +36,7 @@ const ShoppingTable = (props) => {
 console.log(props.shopping)
 
     const deleteShopping = (shopping) => {
-        fetch(`http://localhost:3000/shopping/delete/${shopping.id}`, {
+        fetch(`${APIURL}/shopping/delete/${shopping.id}`, {
             method: 'DELETE',
             headers: new Headers({
                 'Content-Type': 'application/json',

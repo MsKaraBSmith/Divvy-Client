@@ -2,6 +2,7 @@ import moment from 'moment';
 import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import styled from 'styled-components';
+import APIURL from '../../helpers/environments';
 
 const MenuCreateStyle = styled.div `
   font-family: 'Josefin Sans', sans-serif;
@@ -19,6 +20,7 @@ const MenuCreateButton = styled.button `
   color: white;
   margin-top: 3%;
 `;
+
 
 
 class MenuCreate extends Component {
@@ -39,7 +41,7 @@ class MenuCreate extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        fetch(`http://localhost:3000/menu/create`, {
+        fetch(`${APIURL}/menu/create`, {
             method: "POST",
             body: JSON.stringify({
               menu: {
@@ -110,82 +112,3 @@ class MenuCreate extends Component {
 }
 
 export default MenuCreate;
-
-// import React, { useState, useEffect } from "react";
-// import { Button, Form, FormGroup, Label, Input } from "reactstrap";
-
-// const MenuCreate = (props) => {
-//   const [date, setDate] = useState("");
-//   const [recipeTitle, setRecipeTitle] = useState("");
-//   const [ingredientList, setIngredientList] = useState("");
-//   const [recipeLink, setRecipeLink] = useState("");
-//   const [groupName, setGroupName] = useState("");
-//   const [familyUsername, setFamilyUsername] = useState("");
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     fetch(`http://localhost:3000/menu/create`, {
-//       method: "POST",
-//       body: JSON.stringify({
-//         menu: {
-//           date: date,
-//           recipeTitle: recipeTitle,
-//           ingredientList: ingredientList,
-//           recipeLink: recipeLink,
-//           groupName: groupName,
-//           familyUsername: familyUsername,
-//         },
-//       }),
-//       headers: new Headers({
-//         "Content-Type": "application/json",
-//         'Authorization': props.sessionToken,
-//       }),
-//     })
-//       .then((res) => res.json())
-//       .then((menuData) => {
-//         console.log(menuData);
-//         setDate("");
-//         setRecipeTitle("");
-//         setIngredientList("");
-//         setRecipeLink("");
-//         setGroupName("");
-//         setFamilyUsername("");
-//         props.fetchMenus();
-//       });
-//   };
-
-//   return (
-//     <>
-//       <h3>Creat a Menu</h3>
-//       <Form onSubmit={handleSubmit}>
-//         <FormGroup>
-//           <Label htmlFor="date" />
-//           <Input type="date" name="date" value={date} placeholder="Date" onChange={(e) => setDate(e.target.value)} />
-//         </FormGroup>
-//         <FormGroup>
-//           <Label htmlFor="recipeTitle" />
-//           <Input name="recipeTitle" placeholder="Recipe Title" value={recipeTitle} onChange={(e) => setRecipeTitle(e.target.value)} />
-//         </FormGroup>
-//         <FormGroup>
-//           <Label htmlFor="ingredientList" />
-//           <Input name="ingredientList" placeholder="Ingredient List" value={ingredientList} onChange={(e) => setIngredientList(e.target.value)} />
-//         </FormGroup>
-//         <FormGroup>
-//           <Label htmlFor="recipeLink" />
-//           <Input name="recipeLink" placeholder="Recipe Link" value={recipeLink} onChange={(e) => setRecipeLink(e.target.value)} />
-//         </FormGroup>
-//         <FormGroup>
-//           <Label htmlFor="groupName" />
-//           <Input name="groupName" placeholder="Group Name" value={groupName} onChange={(e) => setGroupName(e.target.value)} />
-//         </FormGroup>
-//         <FormGroup>
-//           <Label htmlFor="familyUsername" />
-//           <Input name="familyUsername" placeholder="Family Username" value={familyUsername} onChange={(e) => setFamilyUsername(e.target.value)} />
-//         </FormGroup>
-//         <Button type="submit">Click to Submit</Button>
-//       </Form>
-//     </>
-//   );
-// };
-
-// export default MenuCreate;

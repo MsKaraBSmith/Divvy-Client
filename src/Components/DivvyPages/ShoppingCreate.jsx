@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import styled from 'styled-components';
+import APIURL from '../../helpers/environments';
 
 const ShoppingCreateStyle = styled.div `
   width: 50%;
@@ -52,7 +53,7 @@ class ShoppingCreate extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        fetch(`http://localhost:3000/shopping/create`, {
+        fetch(`${APIURL}/shopping/create`, {
             method: "POST",
             body: JSON.stringify({
               shopping: {

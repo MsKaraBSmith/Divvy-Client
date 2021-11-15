@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, } from "reactstrap";
+import APIURL from "../../helpers/environments";
 
 class MenuEdit extends Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class MenuEdit extends Component {
 
   menuPostUpdate = () => {
     fetch(
-      `http://localhost:3000/menu/updatemenu/${this.props.menuToUpdate.id}`,
+      `${APIURL}/menu/updatemenu/${this.props.menuToUpdate.id}`,
       {
         method: "PUT",
         body: JSON.stringify({

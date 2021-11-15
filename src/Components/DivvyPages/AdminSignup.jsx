@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import styled from 'styled-components';
+import APIURL from '../../helpers/environments';
 
 const AdminSignupDiv = styled.div `
     color: white;
@@ -14,6 +15,7 @@ const AdminSignupButton = styled.button `
     color: white;
     margin-top: 3%;
 `;
+
 
 class AdminSignup extends Component {
     constructor(props) {
@@ -29,7 +31,7 @@ class AdminSignup extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        fetch(`http://localhost:3000/user/register`, {
+        fetch(`${APIURL}/user/register`, {
             method: 'POST',
             body: JSON.stringify({
                 user: {

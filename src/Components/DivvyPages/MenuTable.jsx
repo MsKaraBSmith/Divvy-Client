@@ -1,29 +1,7 @@
-// import React, { Component } from 'react';
-
-// import {Card, CardImg, CardText, CardTitle, CardSubtitle, CardBody, Button, CardDeck} from "reactstrap";
-
-// class MenuCards extends Component {
-//     constructor(props) {
-//         super(props);
-//         this.state = {  }
-//     }
-//     render() { 
-//         return ( 
-//             <div>
-
-//             </div>
-//          );
-//     }
-// }
- 
-// export default MenuCards;
-
-// import React from 'react';
-// import { Table, Button } from 'reactstrap';
-
 import React from 'react';
 import { Table, Button } from 'reactstrap';
 import styled from 'styled-components';
+import APIURL from '../../helpers/environments';
 import moment from 'moment';
 
 const MenuTableStyle = styled.table `
@@ -53,11 +31,12 @@ const MenuTH= styled.th `
     border-bottom: 3px solid red;
 `;
 
+
 const MenuTable = (props) => {
 console.log(props.menus)
 
     const deleteMenu = (menus) => {
-        fetch(`http://localhost:3000/menu/delete/${menus.id}`, {
+        fetch(`${APIURL}/menu/delete/${menus.id}`, {
             method: 'DELETE',
             headers: new Headers({
                 'Content-Type': 'application/json',
