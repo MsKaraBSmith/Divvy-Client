@@ -1,4 +1,3 @@
-// import React, { useState } from 'react';
 import React, { Component } from 'react';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import styled from 'styled-components';
@@ -100,7 +99,7 @@ class Signup extends Component {
         .then((response) => response.json())
         .then((data) => {
             this.props.updateToken(data.sessionToken);
-            this.props.isAdmin(data.user.role)
+            this.props.isAdmin(data.user.role);
             console.log(data.sessionToken);
             localStorage.setItem("username", this.state.username);
             console.log(data);

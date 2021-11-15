@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Component } from 'react';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import styled from 'styled-components';
 
@@ -12,23 +12,30 @@ const LoginButton = styled.button `
     background-color: #71B414;
 `;
 
-const Login = (props) => {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+class Login extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { 
+            username: '',
+            password: '',
+         };
+    }
 
-    const handleSubmit = (event) => {
+    handleSubmit = (event) => {
         event.preventDefault();
         fetch('http://localhost:3000/user/login', {
             method: 'POST',
-            body: JSON.stringify({user:{username: username, password: password}}),
+            body: JSON.stringify({user:{
+                username: this.state.username, 
+                password: this.state.password}}),
             headers: new Headers({
                 'Content-Type': 'application/json'
             })
         }).then(
             (response) => response.json()
         ).then((data) => {
-            props.updateToken(data.sessionToken);
-            props.isAdmin(data.user.role);
+            this.props.updateToken(data.sessionToken);
+            this.props.isAdmin(data.user.role);
             console.log(data);
             console.log(data.user.role)
         }).catch(err => {
@@ -37,22 +44,24 @@ const Login = (props) => {
         })
     }
 
+
     return ( 
         <LoginDiv>
             <h1>Login</h1>
-            <Form onSubmit={handleSubmit}>
+            <Form onSubmit={this.handleSubmit}>
                 <FormGroup>
                     <Label htmlFor="username">Username</Label>
-                    <Input onChange={(e) => setUsername(e.target.value)} name="username" value={username}/>
+                    <Input onChange={(e) => this.setState({ username: e.target.value})} name="username" value={this.state.username} type="email"/>
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="password">Password</Label>
-                    <Input onChange={(e) => setPassword(e.target.value)} name="password" value={password}/>
+                    <Input onChange={(e) => this.setState({ password: e.target.value})} name="password" value={this.state.password} type="password"/>
                 </FormGroup>
                 <LoginButton type="submit">Login</LoginButton>
             </Form>
         </LoginDiv>
      );
+
 }
  
 export default Login;
