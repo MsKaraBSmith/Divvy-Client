@@ -128,7 +128,7 @@ fetch(`${APIURL}/shopping/updateshopping/${this.props.shoppingToUpdate.id}`, req
               <FormGroup>
                 <Label htmlFor="date">Edit Date</Label>
                 <Input
-                  name="date"
+                  name="date" type="date"
                   value={this.state.editDate}
                   onChange={(e) => this.setState({ editDate: e.target.value })}
                 />

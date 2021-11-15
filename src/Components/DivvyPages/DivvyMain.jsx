@@ -19,6 +19,17 @@ position: absolute;
 top: 0;
 left: 0;
 z-index: -30;
+`;
+
+const WelcomeP = styled.p `
+    color: orange;
+    text-shadow: 5px 1px white;
+    margin-top: 20%;
+    z-index: 10;
+    font-size: 1000%;
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: bolder;
 `
 
 
@@ -30,7 +41,7 @@ const DivvyMain = (props) => {
         <div>
             <DivvyNav token={props.token} />
             <HomeBackground>
-            <h1>Welcome to Divvy!</h1>
+            <WelcomeP>Welcome to Divvy!</WelcomeP>
             </HomeBackground>
             </div>
       

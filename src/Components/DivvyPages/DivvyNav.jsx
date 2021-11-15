@@ -10,19 +10,19 @@ const DivvyNav = (props) => {
     console.log(props.token, "This is coming from DivvyNav");
     return (
         <div>
-        <Navbar color="dark" dark expand="md">
+        <Navbar color="success" dark expand="md">
             <NavbarBrand href="/">
                 Home
             </NavbarBrand>
-            <Nav className="ml-auto">
-                <NavItem>
-                    <Link to="/menu" className="site-link">Menus</Link>
+            <Nav className="mr-auto">
+                <NavItem class="divvyNav">
+                    <Link to="/menu" className="site-link" style={{ textDecoration: "none", color: "white", padding: "8px", float: "right"}}>Menus</Link>
                 </NavItem>
-                <NavItem>
-                    <Link to="/shopping" className="site-link">Shopping Lists</Link>
+                <NavItem class="divvyNav">
+                    <Link to="/shopping" className="site-link" style={{ textDecoration: "none", color: "white", padding: "8px", float: "right"}}>Shopping Lists</Link>
                 </NavItem>
-                {localStorage.getItem("user")==="admin"?(<><NavItem>
-                    <Link to="/admin" className="site-link">Admin</Link>
+                {localStorage.getItem("user")==="admin"?(<><NavItem class="divvyNav">
+                    <Link to="/admin" className="site-link" style={{ textDecoration: "none", color: "white", padding: "8px", float: "right"}}>Admin</Link>
                 </NavItem></>): null}
             </Nav>
         </Navbar>

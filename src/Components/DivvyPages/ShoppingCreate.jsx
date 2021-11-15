@@ -1,7 +1,26 @@
 import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import styled from 'styled-components';
 import APIURL from '../../helpers/environments';
 
+const ShoppingCreateStyle = styled.div `
+  width: 50%;
+  margin-left: 25%;
+  font-family: 'Josefin Sans', sans-serif;
+`;
+
+const ShoppingCreateHeader = styled.p `
+  color: white;
+  font-size: 40px;
+  padding-top: 5%;
+`;
+
+const ShoppingCreateButton = styled.button `
+    background-color: #71B414;
+    border: none;
+    color: white;
+    margin-top: 3%;
+`;
 
 class ShoppingCreate extends Component {
     constructor(props) {
@@ -99,7 +118,8 @@ class ShoppingCreate extends Component {
     render() {
         return (
             <>
-      <h3>Create a Shopping List</h3>
+            <ShoppingCreateStyle>
+      <ShoppingCreateHeader>Create a Shopping List</ShoppingCreateHeader>
       <Form onSubmit={this.handleSubmit}>
         <FormGroup>
           <Label htmlFor="date" />
@@ -185,8 +205,9 @@ class ShoppingCreate extends Component {
           <Label htmlFor="baking" />
           <Input name="baking" placeholder="Baking Goods" onChange={(e) => {this.setState({ baking:(e.target.value)}) }} />
         </FormGroup>
-        <Button type="submit">Click to Submit</Button>
+        <ShoppingCreateButton type="submit" onClick={() => {window.location.reload();}}>Click to Submit</ShoppingCreateButton>
       </Form>
+      </ShoppingCreateStyle>
     </>
          );
     }

@@ -3,7 +3,15 @@ import AdminSignup from './AdminSignup';
 import AdminTable from './AdminTable';
 import { Container, Row, Col } from 'reactstrap';
 import AdminEdit from './AdminEdit';
+import styled from "styled-components";
 import APIURL from '../../helpers/environments';
+import background4 from '../Assets/pexels-lukas-616404.jpg';
+
+const AdminBackground = styled.div `
+  background-image: url(${background4});
+  background-size: cover;
+`;
+
 
 
 class AdminIndex extends Component {
@@ -54,7 +62,8 @@ class AdminIndex extends Component {
     };
 
     render() { 
-        return ( 
+        return (
+            <AdminBackground>
             <Container className="admin-signup">
             <Row>
                 <Col md='4'>
@@ -68,6 +77,7 @@ class AdminIndex extends Component {
                 : <></>}
             </Row>
         </Container>
+        </AdminBackground>
          );
     }
 }

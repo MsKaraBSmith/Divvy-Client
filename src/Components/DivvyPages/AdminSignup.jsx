@@ -1,6 +1,21 @@
 import React, { Component } from 'react';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import styled from 'styled-components';
 import APIURL from '../../helpers/environments';
+
+const AdminSignupDiv = styled.div `
+    color: white;
+    margin-top: 65%;
+    font-family: 'Josefin Sans', sans-serif;
+`;
+
+const AdminSignupButton = styled.button `
+    background-color: #71B414;
+    border: none;
+    color: white;
+    margin-top: 3%;
+`;
+
 
 class AdminSignup extends Component {
     constructor(props) {
@@ -41,7 +56,7 @@ class AdminSignup extends Component {
     };
     render() { 
         return ( 
-            <div>
+            <AdminSignupDiv>
             <h1>Signup</h1>
             <Form onSubmit={this.handleSubmit}>
                 <FormGroup>
@@ -62,11 +77,15 @@ class AdminSignup extends Component {
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="role">Role</Label>
-                    <Input onChange={(e) => this.setState({ role: e.target.value})} name="role" value={this.state.role}/>
+                    <Input type="select" name="role" onChange={(e) => this.setState({ role: e.target.value})} name="role" value={this.state.role}>
+                        <option value="admin">Admin</option>
+                        <option value="creator">Creator</option>
+                        <option value="user">User</option>
+                    </Input>
                 </FormGroup>
-                <Button type="submit" onClick={() => {window.location.reload();}}>Signup</Button>
+                <AdminSignupButton type="submit" onClick={() => {window.location.reload();}}>Signup</AdminSignupButton>
             </Form>
-        </div> 
+        </AdminSignupDiv> 
          );
     }
 }

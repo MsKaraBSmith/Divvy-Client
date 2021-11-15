@@ -1,6 +1,18 @@
 import React, { Component } from 'react';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import styled from 'styled-components';
 import APIURL from '../../helpers/environments';
+
+const SignupDiv = styled.div `
+    color: white;
+    font-family: 'Josefin Sans', sans-serif;
+    padding-top: 15%;
+`;
+
+const SignupButton = styled.button `
+    background-color: #71B414;
+`;
+
 
 class Signup extends Component {
     constructor(props) {
@@ -45,7 +57,7 @@ class Signup extends Component {
     };
     render() { 
         return ( 
-            <div>
+            <SignupDiv>
             <h1>Signup</h1>
             <Form onSubmit={this.handleSubmit}>
                 <FormGroup>
@@ -68,9 +80,9 @@ class Signup extends Component {
                     <Label htmlFor="role">Role</Label>
                     <Input onChange={(e) => this.setState({ role: e.target.value})} name="role" value={this.state.role}/>
                 </FormGroup> */}
-                <Button type="submit">Signup</Button>
+                <SignupButton type="submit">Signup</SignupButton>
             </Form>
-        </div> 
+        </SignupDiv> 
          );
     }
 }

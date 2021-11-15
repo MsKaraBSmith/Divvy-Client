@@ -1,29 +1,36 @@
-// import React, { Component } from 'react';
-
-// import {Card, CardImg, CardText, CardTitle, CardSubtitle, CardBody, Button, CardDeck} from "reactstrap";
-
-// class MenuCards extends Component {
-//     constructor(props) {
-//         super(props);
-//         this.state = {  }
-//     }
-//     render() { 
-//         return ( 
-//             <div>
-
-//             </div>
-//          );
-//     }
-// }
- 
-// export default MenuCards;
-
-// import React from 'react';
-// import { Table, Button } from 'reactstrap';
-
 import React from 'react';
 import { Table, Button } from 'reactstrap';
+import styled from 'styled-components';
 import APIURL from '../../helpers/environments';
+import moment from 'moment';
+
+const MenuTableStyle = styled.table `
+    border: 5px solid limegreen;
+    border-collapse: collapse;
+    align-content: center;
+    background-color: white;
+    margin-bottom: 30%;
+    margin-left: 20%;
+    font-family: 'Josefin Sans', sans-serif;
+`;
+
+const MenuTableHeader = styled.h3 `
+    margin-top: 10%;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 40px;
+    color: white;
+    margin-left: 20%;
+`;
+
+const MenuTD = styled.td `
+    border-top: 3px solid red;
+    /* padding: 8px; */
+`;
+
+const MenuTH= styled.th `
+    border-bottom: 3px solid red;
+`;
+
 
 const MenuTable = (props) => {
 console.log(props.menus)
@@ -43,18 +50,18 @@ console.log(props.menus)
         return props.menus.map((menu, index) => {
             return(
                 <tr key={index}>
-                    <th scope="row">{menu.id}</th>
-                    <td>{menu.date}</td>
-                    <td>{menu.recipeTitle}</td>
-                    <td>{menu.ingredientList}</td>
-                    <td>{menu.recipeLink}</td>
-                    <td>{menu.groupName}</td>
-                    <td>{menu.familyUsername}</td>
+                    {/* <th scope="row">{menu.id}</th> */}
+                    <MenuTD>{moment(menu.date).add(1, 'days').calendar()}</MenuTD>
+                    <MenuTD>{menu.recipeTitle}</MenuTD>
+                    <MenuTD>{menu.ingredientList}</MenuTD>
+                    <MenuTD><a href={menu.recipeLink} target="_blank">{menu.recipeLink}</a></MenuTD>
+                    <MenuTD>{menu.groupName}</MenuTD>
+                    <MenuTD>{menu.familyUsername}</MenuTD>
                     {localStorage.getItem("user")==="admin" || localStorage.getItem("user")==="creator" ? (<>
-                        <td>
+                        <MenuTD>
                         <Button color="warning" onClick={() => { props.editUpdateMenus(menu); props.updateOn() }}>Update</Button>
                         <Button color="danger" onClick={() => { deleteMenu(menu); }} >Delete</Button>
-                        </td>
+                        </MenuTD>
                     </>): null}
                    
                 </tr>
@@ -64,24 +71,23 @@ console.log(props.menus)
 
     return ( 
         <>
-        <h3>Menus</h3>
-        <hr />
-        <Table striped>
+        <MenuTableHeader>Menus</MenuTableHeader>
+        <MenuTableStyle>
         <thead>
             <tr>
-                <th>#</th>
-                <th> Date </th>
-                <th> Recipe Title </th>
-                <th> Ingredient List </th>
-                <th> Recipe Link </th>
-                <th> Group Name </th>
-                <th> Family Username </th>
+                {/* <th>#</th> */}
+                <MenuTH> Date </MenuTH>
+                <MenuTH> Recipe Title </MenuTH>
+                <MenuTH> Ingredient List </MenuTH>
+                <MenuTH> Recipe Link </MenuTH>
+                <MenuTH> Group Name </MenuTH>
+                <MenuTH> Family Username </MenuTH>
             </tr>
         </thead>
         <tbody>
             {menuMapper()}
         </tbody>
-        </Table>
+        </MenuTableStyle>
         </>
      );
 }
