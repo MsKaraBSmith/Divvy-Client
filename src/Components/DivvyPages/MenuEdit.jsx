@@ -24,6 +24,7 @@ class MenuEdit extends Component {
         menu: {
           date: this.state.editDate,
           recipeTitle: this.state.editRecipeTitle,
+          ingredientList: this.state.editIngredientList,
           recipeLink: this.state.editRecipeLink,
           groupName: this.state.editGroupName,
           familyUsername: this.state.editFamilyUsername,

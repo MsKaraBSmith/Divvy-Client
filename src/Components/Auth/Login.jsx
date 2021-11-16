@@ -38,6 +38,7 @@ class Login extends Component {
         ).then((data) => {
             this.props.updateToken(data.sessionToken);
             this.props.isAdmin(data.user.role);
+            window.location.href = "/";
             console.log(data);
             console.log(data.user.role)
         }).catch(err => {
