@@ -1,70 +1,30 @@
-# Getting Started with Create React App
+# Client for Divvy, a menu planning app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Divvy is an app that is intended to be used by busy adults to share in meal planning responsibilities. You can only make one menu per date so there aren't duplicate days. You can also put together a shopping list for the menu you created, so the user knows exactly what they need to make the meal for that specific date.
 
-## Available Scripts
+## Roles:
 
-In the project directory, you can run:
+The app has three roles: Admin, creator, and user. When you sign up initially you are automatically an admin. The admin can create new accounts for people they'd like to share in the meal planning. The admin will then assign the other roles. If a user is a creator, they will have access to planning menus and creating shopping lists. as well as updating and deleting their menus. If they are a user, they will only see the menus and shopping lists that have been created by an admin or creator. The admin can update the other users if they would like to switch roles between users. They can also delete other users.
 
-### `npm start`
+## Dependencies and Libraries:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The Divvy client is built with the Create React App. Reactstrap was used to build components, such as tables and forms. Styled Components was utilized for the styling. React-router-dom was used for navigating throughout the app. Moments.js was used to format dates.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Data:
 
-### `npm test`
+There are three tables used for storing data via Postgres. There is a table for users, a table for storing the menus, and one for the shopping lists. The users can own many menus and shopping lists.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Future Versions:
 
-### `npm run build`
+Divvy 2.0 has many possibilities for an improved user experience. I would like to improve the display of the menus and shopping lists, including displaying them by ascending order, while also making them searchable by date. I would also like to make it so the users only have access to their groups information, including the admin only having administrative duties for their specific group. I would also like to add another table called the recipe box, where a user can store feedback on the recipes they have tried. The shopping list having more functionality, such as utilizing a checklist or being able to be downloaded, is also a future possibility. Lastly, I may implement adding access to a recipe API for users to look to for inspiration.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Divvy Server Repo
+[Divvy Server Repo on Github](https://github.com/MsKaraBSmith/DIvvy-Server)
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Divvy Live Deployment on Heroku
+[Divvy](https://kbsdivvyclient.herokuapp.com/)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
