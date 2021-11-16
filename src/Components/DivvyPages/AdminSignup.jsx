@@ -5,8 +5,10 @@ import APIURL from '../../helpers/environments';
 
 const AdminSignupDiv = styled.div `
     color: white;
-    margin-top: 65%;
+    margin-top: 60%;
     font-family: 'Josefin Sans', sans-serif;
+    margin-left: 5%;
+    margin-right: -5%;
 `;
 
 const AdminSignupButton = styled.button `
